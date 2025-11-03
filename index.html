@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionSave | Oracle Cloud Cost Optimization</title>
+    <meta name="description" content="Optimize your Oracle Cloud subscriptions with AI-driven insights. Save up to 30% on licensing costs.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./image/otp.jpg" type="image/png">
+</head>
+
+<body>
+    <div class="loader">
+        <div class="justify-content-center jimu-primary-loading"></div>
+    </div>
+    <div id="update-popup" class="popup-modal">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="popup-icon">
+                <i class="fas fa-bell"></i>
+            </div>
+            <h2>Stay Updated!</h2>
+            <p>Subscribe to get the latest updates, tips, and exclusive offers from FusionSave.</p>
+            <form class="popup-form" id="popupForm">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <button type="submit">
+                    <i class="fas fa-check"></i> Subscribe Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./image/logo.png" alt="FusionSave Logo">
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#use-cases">Use Cases</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>Where Cloud Compliance Meets Smart Savings</h1>
+                <p>AI-powered insights to identify inactive users, optimize Subscription, and save up to 30% on your Oracle Fusion subscriptions.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="toggleChat()">
+                        <i class="fas fa-calculator"></i> Calculate Savings
+                    </button>
+                    <a href="#contact" class="btn btn-outline">Request Demo</a>
+                </div>
+            </div>
+            <div class="hero-visual fade-in-up">
+                <img src="./image/FusionSave_LandingPageIMGGiF.gif" alt="FusionSave Dashboard" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>30%</h3>
+                <p>Average Cost Savings</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Audit Compliance Rate</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Real-Time Monitoring</p>
+            </div>
+            <div class="stat-item">
+                <h3>100+</h3>
+                <p>Companies Trust Us</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header fade-in-up">
+            <h2>About FusionSave</h2>
+            <p>Empowering organizations to take full control of their Oracle Cloud subscriptions</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in-up">
+                <p>At FusionSave, we empower organizations to take full control of their Oracle Cloud subscriptions. Many businesses today struggle with overspending on unused licenses, inefficient allocation of resources, and complex compliance requirements. FusionSave was built to solve these challenges with intelligence, precision, and simplicity.</p>
+
+                <div id="more-content" style="display: none;">
+                    <p>Our platform goes beyond traditional cost-cutting tools. By leveraging <strong>AI-driven insights</strong> and <strong>real-time analytics</strong>, FusionSave identifies inactive users, detects over-licensing, and streamlines subscription management. The result? Significant cost savings, improved efficiency, and a clear path to <strong>compliance and audit readiness</strong>.</p>
+
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <strong>For CFOs & Finance Teams:</strong>
+                                <p>Gain complete transparency into license spend, uncover cost leakages, and optimize budgets with confidence.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <div>
+                                <strong>For CIOs & IT Leaders:</strong>
+                                <p>Improve system efficiency, monitor usage trends, and ensure resources are aligned with business goals.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>For Compliance Officers:</strong>
+                                <p>Stay audit-ready with accurate tracking, policy enforcement, and risk-free license management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mission-text">Our mission is simple: <strong>stop Oracle Cloud overages and help organizations unlock true value from their investments</strong>. With FusionSave, you don't just save money—you gain control, confidence, and clarity.</p>
+                </div>
+
+                <button id="learn-more-btn" class="btn btn-primary" onclick="toggleAbout()">
+                    <i class="fas fa-arrow-down"></i> Learn More
+                </button>
+            </div>
+
+            <div class="about-image fade-in-up">
+                <img src="./image/AboutUs_SquareNew.png" alt="Enterprise Resource Planning" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-header fade-in-up">
+            <h2>Why Choose FusionSave?</h2>
+            <p>Comprehensive Oracle Cloud optimization with AI-driven insights and real-time analytics</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Cost Analysis</h3>
+                <p>Deep dive into your Oracle Fusion spend with granular visibility across all business units and departments.</p>
+                <ul>
+                    <li>Identify cost leakages</li>
+                    <li>Track spending trends</li>
+                    <li>Budget forecasting</li>
+                </ul>
+            </div>
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>License Optimization</h3>
+                <p>Automatically detect inactive users and over-licensed accounts to eliminate waste.</p>
+                <ul>
+                    <li>Real-time user activity</li>
+                    <li>Smart reallocation</li>
+                    <li>Usage analytics</li>
+                </ul>
+            </div>
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Compliance Ready</h3>
+                <p>Stay audit-ready with automated compliance checks and detailed reporting.</p>
+                <ul>
+                    <li>Policy enforcement</li>
+                    <li>Automated alerts</li>
+                    <li>Audit trails</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+        <div class="section-header fade-in-up">
+            <h2>Cloud Clarity Dashboard</h2>
+            <p>Get complete visibility into your Oracle Cloud spend and usage patterns</p>
+        </div>
+        <div class="dashboard">
+            <div class="kpi-cards">
+                <div class="kpi-card fade-in-up">
+                    <h3>Current Spending</h3>
+                    <div class="kpi-value danger">$250,000</div>
+                    <p>Annual subscription cost</p>
+                </div>
+                <div class="kpi-card fade-in-up">
+                    <h3>Potential Savings</h3>
+                    <div class="kpi-value success">$75,000</div>
+                    <p>Identified opportunities</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart fade-in-up">
+                    <h3>License Utilization</h3>
+                    <img src="./image/generated_image (1).png" alt="License Utilization Chart" />
+                </div>
+                <div class="chart fade-in-up">
+                    <h3>Monthly Spend Trend</h3>
+                    <img src="./image/generated_image.png" alt="Spend Trend Chart" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases">
+        <div class="section-header fade-in-up">
+            <h2>Solutions for Every Role</h2>
+            <p>Tailored insights for CFOs, CIOs, and compliance teams</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>For CFOs & Finance</h3>
+                <p>Complete budget control with predictable forecasting and strategic cost optimization.</p>
+                <ul>
+                    <li>Budget transparency</li>
+                    <li>Cost allocation by department</li>
+                    <li>ROI tracking</li>
+                </ul>
+            </div>
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>For CIOs & IT Leaders</h3>
+                <p>Real-time visibility into cloud resources with smart allocation recommendations.</p>
+                <ul>
+                    <li>System efficiency metrics</li>
+                    <li>Resource optimization</li>
+                    <li>Performance monitoring</li>
+                </ul>
+            </div>
+            <div class="feature-card fade-in-up">
+                <div class="feature-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3>For Compliance Teams</h3>
+                <p>Automated compliance monitoring with continuous audit readiness.</p>
+                <ul>
+                    <li>Policy adherence tracking</li>
+                    <li>Risk assessment</li>
+                    <li>Automated reporting</li>
+                </ul>
+            </div>
+        </div>
+    </section>  
+
+<!-- Plans & Pricing Section -->
+<!-- <section id="pricing">
+  <div class="section-header fade-in-up">
+    <h2>Plans & Pricing</h2>
+    <p>Choose a plan that fits your organization's needs — simple, transparent, and flexible.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="pricing-card fade-in-up">
+      <h3>Starter</h3>
+      <p class="price">$99<span>/month</span></p>
+      <ul>
+        <li>Up to 50 users</li>
+        <li>Basic analytics dashboard</li>
+        <li>Email support</li>
+      </ul>
+      <button class="btn btn-primary">Get Started</button>
+    </div>
+
+    <div class="pricing-card fade-in-up">
+      <h3>Professional</h3>
+      <p class="price">$249<span>/month</span></p>
+      <ul>
+        <li>Up to 500 users</li>
+        <li>Advanced reporting tools</li>
+        <li>Priority support</li>
+      </ul>
+      <button class="btn btn-primary">Start Free Trial</button>
+    </div>
+
+    <div class="pricing-card fade-in-up">
+      <h3>Business</h3>
+      <p class="price">$499<span>/month</span></p>
+      <ul>
+        <li>Up to 1,000 users</li>
+        <li>Dedicated success manager</li>
+        <li>Custom integrations</li>
+      </ul>
+      <button class="btn btn-primary">Contact Sales</button>
+    </div>
+
+    <div class="pricing-card fade-in-up">
+      <h3>Enterprise</h3>
+      <p class="price">Custom</p>
+      <ul>
+        <li>Unlimited users</li>
+        <li>Full compliance suite</li>
+        <li>24/7 premium support</li>
+      </ul>
+      <button class="btn btn-primary">Request Demo</button>
+    </div>
+  </div>
+</section> -->
+
+    <!-- Success Report Section -->
+    <section id="success-report" class="highlight-section fade-in-up">
+        <div class="report-container">
+            <div class="report-text fade-in-up">
+                <h2>📄 Success Report</h2>
+                <h3>“How FusionSave Helped Enterprises Save Over $1.2 Million in Oracle Fusion Costs”</h3>
+                <p>Explore real stories of how leading organizations achieved up to <strong>30% savings</strong>, strengthened compliance, and gained total visibility into their Oracle Fusion subscriptions.</p>
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Click to download the full report
+                </a>
+            </div>
+            <div class="report-image fade-in-up">
+                <img src="./image/Success_Report.png" alt="FusionSave Success Report" />
+            </div>
+        </div>
+    </section>
+
+
+
+
+<!-- Mission & Vision Section -->
+<section id="mission-vision">
+  <div class="section-header fade-in-up">
+    <h2>Our Mission & Vision</h2>
+    <p>Driving innovation, clarity, and cost efficiency in Oracle Fusion Cloud management.</p>
+  </div>
+
+  <div class="mv-container fade-in-up">
+    <div class="mv-card">
+      <div class="mv-icon">
+        <i class="fas fa-bullseye"></i>
+      </div>
+      <h3>Mission</h3>
+      <p>
+        To revolutionize the way enterprises manage their Oracle Fusion Cloud subscriptions —
+        turning complexity into clarity and cost into measurable savings.
+      </p>
+      <p>
+        At FusionSave, we’re on a mission to empower organizations with AI-powered optimization,
+        automated compliance, and actionable intelligence that unlocks efficiency, transparency,
+        and lasting value.
+      </p>
+    </div>
+
+    <div class="mv-card">
+      <div class="mv-icon">
+        <i class="fas fa-eye"></i>
+      </div>
+      <h3>Vision</h3>
+      <p>
+        To build a world where cloud investment and performance move in perfect sync —
+        no waste, no guesswork, only precision.
+      </p>
+      <p>
+        FusionSave envisions every enterprise gaining total control over Oracle Fusion usage,
+        achieving continuous compliance, and realizing sustainable cost efficiency through
+        smart automation and data-driven insight.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header fade-in-up">
+            <h2>Get Started Today</h2>
+            <p>Let's discuss how FusionSave can optimize your Oracle Cloud subscriptions</p>
+        </div>
+        <form class="contact-form fade-in-up" id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="john@company.com">
+            </div>
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" required placeholder="Your Company">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Tell us about your needs..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FusionSave</h3>
+                <p>Optimize your Oracle Cloud subscriptions with AI-driven insights.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="mailto:connect@fusionsave.ai">Email: connect@fusionsave.ai</a></li>
+                    <li><a href="https://www.linkedin.com/company/fusionsave/?viewAsMember=true">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FusionSave. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div id="bot-icon" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+    </div>
+    <div id="chat-container">
+        <div class="chat-header">
+            <span>FusionSave Assistant</span>
+            <span class="chat-close" onclick="toggleChat()">×</span>
+        </div>
+        <div id="chat-log"></div>
+        <div class="chat-input-container">
+            <input type="text" id="user-input" placeholder="Type a message..." onkeypress="if(event.key==='Enter') sendMessage()">
+            <button class="send-button" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
