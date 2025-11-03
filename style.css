@@ -991,7 +991,7 @@ section {
   color: #333;
 }
 
-.btn.btn-primary {
+/* .btn.btn-primary {
   margin-top: 1.5rem;
   display: inline-block;
   background: linear-gradient(90deg, #007bff, #00b4ff);
@@ -1002,13 +1002,13 @@ section {
   font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(0, 180, 255, 0.4);
-}
+} */
 
-.btn.btn-primary:hover {
+/* .btn.btn-primary:hover {
   background: linear-gradient(90deg, #00b4ff, #007bff);
   transform: translateY(-2px);
   box-shadow: 0 0 15px rgba(0, 180, 255, 0.7);
-}
+} */
 
 /* =========================
    Use Cases (65%)
