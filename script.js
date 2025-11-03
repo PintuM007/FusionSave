@@ -311,4 +311,12 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
     observer.observe(el);
 });
 
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+      return false;
+    }
+  };
+
+
 
