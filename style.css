@@ -1181,13 +1181,13 @@ body.dark-mode .section-header p {
   opacity: 0.6;
 }
 
-.mv-card1::before {
+/* .mv-card1::before {
   background-image: url('./image/Mission.png');
 }
 
 .mv-card2::before {
   background-image: url('./image/vision.png');
-}
+} */
 
 /* Icon styling */
 .mv-icon {
