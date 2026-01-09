@@ -320,3 +320,69 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
 
 
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  emailjs.init("fHwNbx6fX7ky0C24q");
+
+  const modal = document.getElementById("registerModal");
+  const openBtn = document.getElementById("openRegisterModal");
+  const closeBtn = modal.querySelector(".close-modal");
+  const form = document.getElementById("registerForm");
+
+  openBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", "false");
+  });
+
+  closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = regEmail.value.trim();
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!pattern.test(email)) {
+      alert("Enter a valid email.");
+      return;
+    }
+
+    try {
+      await emailjs.send("service_9jta0qd", "template_q71ywhu", {
+        name: email,
+        time: new Date().toLocaleString(),
+        message: "User requested report download from website."
+      });
+
+      alert("✅ Successful! Download starting...");
+      modal.style.display = "none";
+
+      const link = document.createElement("a");
+      link.href = "./report/FusionSave_Report.pdf";
+      link.download = "";
+      link.click();
+
+      form.reset();
+
+    } catch (err) {
+      console.error("Email failed:", err);
+      alert("❌ Email sending failed. Try again later.");
+    }
+  });
+
+});
+
+
+
+let current = 1;
+const total = 4;
+
+setInterval(() => {
+    document.getElementById("s-" + current).checked = true;
+    current++;
+    if (current > total) current = 1;
+}, 3500);
