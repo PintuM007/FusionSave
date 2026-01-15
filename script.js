@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "none";
 
       const link = document.createElement("a");
-      link.href = "./report/FusionSave_Report.pdf";
+      link.href = "./files/FusionSave_SuccessReport.pdf";
       link.download = "";
       link.click();
 
