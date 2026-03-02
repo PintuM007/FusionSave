@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: black;
+}
+li {
+  list-style: none;
+}
+input[type="radio"] {
+  display: none;
+}
+.js-slider {
+  position: relative;
+  width: 60%;
+  height: 80vh;
+  margin: 0 auto;
+}
+.js-slider_item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: right center;
+  transform: translate3d(0%, 0%, 0) rotateY(30deg) scaleX(0.95);
+  transition: all 1s ease,transform 1s cubic-bezier(0.43, 0.28, 0.51, 1);
+}
+#s-1:checked ~ .js-slider .js-slider_item.img-1,
+#s-2:checked ~ .js-slider .js-slider_item.img-2,
+#s-3:checked ~ .js-slider .js-slider_item.img-3,
+#s-4:checked ~ .js-slider .js-slider_item.img-4 {
+  opacity: 1;
+  visibility: visible;
+  transform-origin: left center;
+  transform: translate3d(0, 0, 0) rotateY(0deg) scaleX(1);
+}
+
+.js-slider_img {
+  width: 100%;
+  height: 80%;
+  position: relative;
+  overflow: hidden;
+}
+.c-img-w-full {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  transform: translate3d(-50%, -50%, 0);
+}
+.c-img-h-full {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  transform: translate3d(-50%, -50%, 0);
+}
+figcaption {
+  display: block;
+}
+.wo-h3 {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #1479EA;
+}
+.c-label {
+  display: inline-block;
+  color: #eee;
+  background-color: rgba(20,121,234,0.9);
+  line-height: 1;
+  padding: 0.5em 0.9em;
+  margin-right: 0.5em;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.view-sm {
+  display: none;
+}
+.js-slider_nav {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  transform: translate3d(0, -50%, 0);
+}
+.js-slider_nav_item.prev {
+  left: 0;
+}
+.js-slider_nav_item.next {
+  right: 0;
+  transform: rotateY(180deg);
+}
+.js-slider_nav_item {
+  position: absolute;
+  display: none;
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid #1479EA;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.js-slider_nav_item:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 1rem;
+  top: 55%;
+  width: 1rem;
+  height: 1px;
+  background-color: #1479EA;
+  transform-origin: left bottom;
+  transform: translate3d(0, -50%, 0) rotate(-45deg);
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.js-slider_nav_item:hover {
+   transform: translate3d(-30%, 0, 0);
+}
+.js-slider_nav_item.next:hover {
+   transform: rotateY(180deg) translate3d(-30%, 0, 0);
+}
+.js-slider_nav_item:hover:before {
+  transform: translate3d(0, -50%, 0) rotate(-30deg);
+}
+.js-slider_nav_item:after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  width: 2rem;
+  height: 1px;
+  background-color: #1479EA;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+#s-1:checked ~ .js-slider .js-slider_nav .s-nav-1,
+#s-2:checked ~ .js-slider .js-slider_nav .s-nav-2,
+#s-3:checked ~ .js-slider .js-slider_nav .s-nav-3,
+#s-4:checked ~ .js-slider .js-slider_nav .s-nav-4 {
+  display: block;
+}
+
+.js-slider_indicator {
+  position: absolute;
+  left: 0;
+  top: 63%;
+  width: 100%;
+  text-align: center;
+}
+.js-slider-indi {
+  position: relative;
+  display: inline-block;
+  padding: 2rem;
+  cursor: pointer;
+}
+.js-slider-indi:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  background: #1479EA;
+  transform: translate3d(-50%, -50%, 0);
+}
+.js-slider-indi:hover:after {
+  transform: translate3d(-50%, -50%, 0) scale(1.5);
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#s-1:checked ~ .js-slider .js-slider_indicator .indi-1:after,
+#s-2:checked ~ .js-slider .js-slider_indicator .indi-2:after,
+#s-3:checked ~ .js-slider .js-slider_indicator .indi-3:after,
+#s-4:checked ~ .js-slider .js-slider_indicator .indi-4:after {
+  transform: translate3d(-50%, -50%, 0) scale(2.5);
+}
+    </style>
+</head>
+<body>
+
+<!-- radio buttons -->
+<input type="radio" id="s-1" name="slider-control" checked="checked">
+<input type="radio" id="s-2" name="slider-control">
+<input type="radio" id="s-3" name="slider-control">
+<input type="radio" id="s-4" name="slider-control">
+
+<div class="js-slider">
+
+  <!-- Slide 1 -->
+  <figure class="js-slider_item img-1">
+    <div class="js-slider_img">
+      <img class="c-img-w-full" src="./image/Screenshot (154).png" alt="">
+    </div>
+    <figcaption class="wo-caption">
+      <h3 class="wo-h3">
+        <div class="c-label">Licence Optimization</div>
+        <br class="view-sm mb-s">optimize your Licences</h3>
+      <ul class="wo-credit">
+        <li>Global Record</li>
+        <li>How you optimize your each licence and costing</li>
+        <li>More then <span class="c-txt-s">4000+ ways</span></li>
+      </ul>
+    </figcaption>
+  </figure>
+
+  <!-- Slide 2 -->
+  <figure class="js-slider_item img-2">
+    <div class="js-slider_img">
+      <img class="c-img-h-full" src="./image/image (2).png" alt=""></div>
+    <figcaption class="wo-caption">
+      <h3 class="wo-h3">
+        <div class="c-label">Licence Optimization</div>
+        <br class="view-sm mb-s">optimize your Licences</h3>
+      <ul class="wo-credit">
+        <li>Global Record</li>
+        <li>How you optimize your each licence and costing</li>
+        <li>More then <span class="c-txt-s">4000+ ways</span></li>
+      </ul>
+    </figcaption>
+  </figure>
+
+  <!-- Slide 3 -->
+  <figure class="js-slider_item img-3">
+    <div class="js-slider_img">
+      <img class="c-img-h-full" src="./image/image (3).png" alt=""></div>
+    <figcaption class="wo-caption">
+      <h3 class="wo-h3">
+        <div class="c-label">Licence Optimization</div>
+        <br class="view-sm mb-s">optimize your Licences</h3>
+      <ul class="wo-credit">
+        <li>Global Record</li>
+        <li>How you optimize your each licence and costing</li>
+        <li>More then <span class="c-txt-s">4000+ ways</span></li>
+      </ul>
+    </figcaption>
+  </figure>
+
+  <!-- Slide 4 (NEW) -->
+  <figure class="js-slider_item img-4">
+    <div class="js-slider_img">
+      <img class="c-img-h-full" src="./image/image4.png" alt="">
+    </div>
+    <figcaption class="wo-caption">
+      <h3 class="wo-h3">
+        <div class="c-label">Licence Optimization</div>
+        <br class="view-sm mb-s">optimize your Licences</h3>
+      <ul class="wo-credit">
+        <li>Global Record</li>
+        <li>How you optimize your each licence and costing</li>
+        <li>More then <span class="c-txt-s">4000+ ways</span></li>
+      </ul>
+    </figcaption>
+  </figure>
+
+  <!-- Navigation -->
+  <div class="js-slider_nav">
+    <label class="js-slider_nav_item s-nav-1 prev" for="s-4"></label>
+    <label class="js-slider_nav_item s-nav-1 next" for="s-2"></label>
+
+    <label class="js-slider_nav_item s-nav-2 prev" for="s-1"></label>
+    <label class="js-slider_nav_item s-nav-2 next" for="s-3"></label>
+
+    <label class="js-slider_nav_item s-nav-3 prev" for="s-2"></label>
+    <label class="js-slider_nav_item s-nav-3 next" for="s-4"></label>
+
+    <label class="js-slider_nav_item s-nav-4 prev" for="s-3"></label>
+    <label class="js-slider_nav_item s-nav-4 next" for="s-1"></label>
+  </div>
+
+  <!-- Indicators -->
+  <div class="js-slider_indicator">
+    <div class="js-slider-indi indi-1"></div>
+    <div class="js-slider-indi indi-2"></div>
+    <div class="js-slider-indi indi-3"></div>
+    <div class="js-slider-indi indi-4"></div>
+  </div>
+
+</div>
+</body>
+</html>

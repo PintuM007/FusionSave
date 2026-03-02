@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pintu's Blog</title>
+  <link rel="stylesheet" href="bstyle.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">Pintu's Blog</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Welcome to My Blog</h2>
+      <p>Sharing thoughts, projects, and tech tutorials!</p>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blogs" class="blogs container">
+    <h2>Latest Posts</h2>
+    <div class="blog-grid">
+      <!-- Blog Card 1 -->
+      <div class="blog-card">
+        <img src="https://source.unsplash.com/600x400/?coding,java" alt="Java Blog" />
+        <div class="blog-content">
+          <h3>Mastering Java Spring Boot</h3>
+          <p>Learn how to build powerful backend systems using Spring Boot and Hibernate.</p>
+          <button class="read-more" data-title="Mastering Java Spring Boot" data-content="Spring Boot is a powerful framework for Java developers that simplifies backend development with built-in tools for dependency management, auto-configuration, and production-ready features.">Read More</button>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="blog-card">
+        <img src="https://source.unsplash.com/600x400/?web,design" alt="Web Design" />
+        <div class="blog-content">
+          <h3>Modern Web Design Tips</h3>
+          <p>Explore clean UI/UX design practices to make your websites stand out.</p>
+          <button class="read-more" data-title="Modern Web Design Tips" data-content="Web design is not only about aesthetics; it's about user experience. Learn about layouts, color theory, typography, and accessibility that enhance modern web design.">Read More</button>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="blog-card">
+        <img src="https://source.unsplash.com/600x400/?cloud,aws" alt="Cloud Computing" />
+        <div class="blog-content">
+          <h3>Getting Started with AWS Cloud</h3>
+          <p>Step-by-step guide to deploying your first app on Amazon Web Services.</p>
+          <button class="read-more" data-title="Getting Started with AWS Cloud" data-content="AWS Cloud offers on-demand computing power, storage, and services. Learn how to set up EC2, RDS, and S3 to deploy scalable applications.">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about container">
+    <h2>About Me</h2>
+    <p>I'm Pintu — a passionate Java Developer and tech enthusiast who loves building web apps and sharing knowledge through blogs.</p>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Pintu's Blog | All Rights Reserved</p>
+  </footer>
+
+  <script src="bscript.js"></script>
+</body>
+</html>
