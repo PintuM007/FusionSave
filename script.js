@@ -386,3 +386,11 @@ setInterval(() => {
     current++;
     if (current > total) current = 1;
 }, 3500);
+const navCloseBtn = document.getElementById('nav-close-btn');
+if (navCloseBtn) {
+    navCloseBtn.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    });
+}
